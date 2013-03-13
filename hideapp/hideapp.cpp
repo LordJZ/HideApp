@@ -17,7 +17,7 @@ int CALLBACK WinMain(
   _In_  int nCmdShow)
 {
     STARTUPINFOA startupInfo;
-    SecureZeroMemory(&startupInfo, sizeof(STARTUPINFO));
+    ZeroMemory(&startupInfo, sizeof(STARTUPINFO));
     startupInfo.cb = sizeof(STARTUPINFO);
 
     startupInfo.dwFlags = STARTF_USESTDHANDLES;
@@ -53,5 +53,5 @@ int CALLBACK WinMain(
     CloseHandle(procInfo.hProcess);
     CloseHandle(procInfo.hThread);
 
-    ExitProcess(dwExitCode);
+    return dwExitCode;
 }
